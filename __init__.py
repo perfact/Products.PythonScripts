@@ -83,13 +83,20 @@
 # 
 ##############################################################################
 __doc__='''Python Scripts Product Initialization
-$Id: __init__.py,v 1.4 2000/12/13 19:06:37 evan Exp $'''
-__version__='$Revision: 1.4 $'[11:-2]
+$Id: __init__.py,v 1.5 2001/01/09 21:48:42 evan Exp $'''
+__version__='$Revision: 1.5 $'[11:-2]
 
 import PythonScript
 try:
     import standard
 except: pass
+
+# Temporary
+from Shared.DC import Scripts
+__module_aliases__ = (
+    ('Products.PythonScripts.Script', Scripts.Script),
+    ('Products.PythonScripts.Bindings', Scripts.Bindings),
+    ('Products.PythonScripts.BindingsUI', Scripts.BindingsUI),)
 
 __roles__ = None
 __allow_access_to_unprotected_subobjects__ = 1
